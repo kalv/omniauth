@@ -32,6 +32,7 @@ module OmniAuth
       end
 
       def user_data
+        @access_token.token_param = "access_token"
         @data ||= MultiJson.decode(@access_token.get("/v1/users/self"))
       end
 
